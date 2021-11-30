@@ -1,7 +1,10 @@
-// IMPORTS
+// ===== IMPORTS =====
 const express = require("express")
 
 const server = express()
+
+// ===== GLOBAL MIDDLEWARE =====
+server.use(express.json())
 
 const hobbitRouter = require("./hobbits/hobbitRouter")
 
