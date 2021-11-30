@@ -1,25 +1,11 @@
-// implement your API here
+// IMPORTS
 const express = require("express")
 
 const server = express()
 
-server.get("/", (req, res) => {
-  res.send("Hello World!")
-})
+const hobbitRouter = require("./hobbits/hobbitRouter")
 
-server.get("/hobbits", (req, res) => {
-  const hobbits = [
-    {
-      id: 1,
-      name: "Samwise Gamgee"
-    },
-    {
-      id: 2,
-      name: "Frodo Baggins"
-    }
-  ]
-  res.status(200).json(hobbits)
-})
+server.use("/hobbits", hobbitRouter)
 
 server.listen(8000, () => {
   console.log("API running on port 8000")
